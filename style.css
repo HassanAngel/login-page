@@ -1,0 +1,139 @@
+/* style.css */
+body {
+    margin: 0;
+    font-family: sans-serif;
+    background-image: url(img.jpg); /* Replace with your background image */
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    max-width: 1280px;
+    margin: auto;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-box {
+    /* background-color: rgba(255, 255, 255, 0.041); Semi-transparent white background */
+    padding: 30px;
+  
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 340px; /* Adjust width as needed */
+    backdrop-filter: blur(5px);
+}
+
+.login-box h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color:white;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    position: relative;
+
+}
+.ico{
+    color: white;
+    position: absolute;
+    top: 34px;
+    right: 150px;
+    transition: .4s;
+
+}
+.input-group:hover .ico{
+    right: 10px;
+}
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: white;
+}
+
+.input-group input {
+    width: 60%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    box-sizing: border-box;
+    border: 1px solid white;
+    outline: none;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.041);
+    transition: .4s;
+    
+}
+.input-group:hover input{
+    width: 100%;
+}
+
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: small;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.remember-me label {
+    margin-left: 5px;
+}
+
+.options a {
+    color: white;
+    text-decoration: none;
+}
+
+.button-div{
+    display: flex ;
+    justify-content: center;
+}
+button {
+    width: 80%;
+    padding: 10px;
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bolder;
+    transition: .3s;
+    
+   
+}
+
+button:hover {
+   
+    width: 100%;
+  
+}
+
+.register-link {
+    text-align: center;
+    margin-top: 15px;
+    color:white;
+}
+
+.register-link a {
+    color: white;
+    text-decoration: none;
+}
+@media (max-width:480px){
+    .login-box{
+        width: 280px;
+    }
+}
