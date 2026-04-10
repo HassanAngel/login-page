@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,10 +7,57 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body>
+<body class="env-default">
     <div class="container">
-        <div class="login-box">
-            <h2>Login</h2>
+        <div class="login-box" id="loginBox">
+            <div class="toolbar" role="group" aria-label="Theme controls">
+                <button class="tool-btn" type="button" id="themeToggleBtn" aria-label="Toggle dark and light mode">
+                    <i class="fa-solid fa-circle-half-stroke"></i>
+                    <span>Dark/Light</span>
+                </button>
+                <button class="tool-btn" type="button" id="colorPanelBtn" aria-label="Open color theme panel" aria-expanded="false" aria-controls="themePanel">
+                    <i class="fa-solid fa-palette"></i>
+                    <span>Theme Color</span>
+                </button>
+            </div>
+
+            <div class="theme-panel" id="themePanel" hidden>
+                <p class="panel-title"><i class="fa-solid fa-droplet"></i> Choose Accent Color</p>
+                <div class="swatches" role="group" aria-label="Color options">
+                    <button class="swatch swatch-active" type="button" data-color="#00bcd4" style="--swatch:#00bcd4" aria-label="Cyan"></button>
+                    <button class="swatch" type="button" data-color="#9c27b0" style="--swatch:#9c27b0" aria-label="Purple"></button>
+                    <button class="swatch" type="button" data-color="#ff5722" style="--swatch:#ff5722" aria-label="Orange"></button>
+                    <button class="swatch" type="button" data-color="#4caf50" style="--swatch:#4caf50" aria-label="Green"></button>
+                    <button class="swatch" type="button" data-color="#ffc107" style="--swatch:#ffc107" aria-label="Amber"></button>
+                </div>
+
+                <p class="panel-title panel-title-small"><i class="fa-solid fa-mountain-sun"></i> Environment</p>
+                <label class="env-control" for="environmentSelect">
+                    <span>Background preset</span>
+                    <select id="environmentSelect" aria-label="Select background environment">
+                        <option value="env-default">Default Image</option>
+                        <option value="env-night">Night Gradient</option>
+                        <option value="env-sunset">Sunset Gradient</option>
+                    </select>
+                </label>
+
+                <div class="toggle-list">
+                    <label>
+                        <input type="checkbox" id="applyBorder" checked>
+                        Apply color to border
+                    </label>
+                    <label>
+                        <input type="checkbox" id="applyIcons" checked>
+                        Apply color to icons
+                    </label>
+                    <label>
+                        <input type="checkbox" id="applyButton" checked>
+                        Apply color to sign in button
+                    </label>
+                </div>
+            </div>
+
+            <h2><i class="fa-solid fa-right-to-bracket"></i> Sign In</h2>
             <form>
                 <div class="input-group">
                     <label for="username">Username</label>
@@ -26,7 +72,7 @@
                 <div class="input-group">
                     <label for="tiktok">TikTok Id</label>
                     <input type="email" id="tiktok" name="tiktokid" required>
-                    <i class="fa-brands fa-tiktok tiki ico" ></i>
+                    <i class="fa-brands fa-tiktok tiki ico"></i>
                 </div>
                 <div class="options">
                     <div class="remember-me">
@@ -36,16 +82,20 @@
                     <a href="#">Forgot Password?</a>
                 </div>
                 <div class="button-div">
-                    <button type="submit">Login</button>
-
+                    <button type="submit" class="login-btn">
+                        <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                        Sign In
+                    </button>
                 </div>
-                
+
                 <div class="register-link">
-                    Don't have an account?  <a href="#">  Register</a>
+                    <i class="fa-regular fa-id-badge"></i>
+                    Don't have an account? <a href="#">Register</a>
                 </div>
             </form>
-           
         </div>
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>

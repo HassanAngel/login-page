@@ -1,77 +1,198 @@
-/* style.css */
+:root {
+    --accent: #00bcd4;
+    --text: #ffffff;
+    --panel-text: #f1f1f1;
+    --bg-card: rgba(10, 10, 10, 0.32);
+    --input-bg: rgba(255, 255, 255, 0.06);
+    --input-border: rgba(255, 255, 255, 0.75);
+    --button-text: #111;
+    --box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
+}
+
 body {
     margin: 0;
     font-family: sans-serif;
-    background-image: url(img.jpg); /* Replace with your background image */
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: center;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     max-width: 1280px;
-    margin: auto;
+    margin-inline: auto;
+    color: var(--text);
+    transition: background .35s ease, color .3s ease;
+}
+
+body.env-default {
+    background-image: url(img.jpg);
+}
+
+body.env-night {
+    background-image: radial-gradient(circle at top, #28395f, #0b1120 60%);
+}
+
+body.env-sunset {
+    background-image: linear-gradient(130deg, #ff7e5f, #feb47b 55%, #ffd56f);
+}
+
+body.light {
+    --text: #1d1d1d;
+    --panel-text: #222;
+    --bg-card: rgba(255, 255, 255, 0.72);
+    --input-bg: rgba(255, 255, 255, 0.75);
+    --input-border: rgba(0, 0, 0, 0.2);
+    --button-text: #fff;
+    --box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
 }
 
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
+    padding: 20px;
 }
 
 .login-box {
-    /* background-color: rgba(255, 255, 255, 0.041); Semi-transparent white background */
     padding: 30px;
-  
+    border-radius: 14px;
+    box-shadow: var(--box-shadow);
+    width: 340px;
+    backdrop-filter: blur(8px);
+    background: var(--bg-card);
+    border: 2px solid transparent;
+    transition: .35s ease;
+}
+
+.toolbar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.tool-btn {
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text);
+    padding: 10px 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-weight: 600;
+}
+
+.theme-panel {
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 16px;
+    background: rgba(0, 0, 0, 0.16);
+    color: var(--panel-text);
+}
+
+body.light .theme-panel {
+    background: rgba(255, 255, 255, 0.35);
+}
+
+.panel-title {
+    margin: 0 0 10px;
+    font-size: .95rem;
+    font-weight: 700;
+}
+
+.panel-title-small {
+    margin-top: 14px;
+}
+
+.swatches {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.swatch {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    background: var(--swatch);
+    cursor: pointer;
+}
+
+.swatch-active {
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent), white 25%);
+}
+
+.env-control {
+    display: grid;
+    gap: 6px;
+    font-size: .85rem;
+    margin-bottom: 12px;
+}
+
+.env-control select {
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    width: 340px; /* Adjust width as needed */
-    backdrop-filter: blur(5px);
+    border: 1px solid var(--input-border);
+    padding: 8px;
+    background: var(--input-bg);
+    color: var(--text);
+}
+
+.toggle-list {
+    display: grid;
+    gap: 6px;
+    font-size: .85rem;
 }
 
 .login-box h2 {
     text-align: center;
-    margin-bottom: 40px;
-    color:white;
+    margin-bottom: 24px;
+    color: var(--text);
 }
 
 .input-group {
     margin-bottom: 15px;
     position: relative;
-
 }
-.ico{
-    color: white;
+
+.ico {
+    color: var(--text);
     position: absolute;
     top: 34px;
     right: 150px;
     transition: .4s;
-
 }
-.input-group:hover .ico{
+
+.input-group:hover .ico {
     right: 10px;
 }
+
 .input-group label {
     display: block;
     margin-bottom: 5px;
-    color: white;
+    color: var(--text);
 }
 
 .input-group input {
     width: 60%;
     padding: 10px;
-    border: 1px solid #ccc;
     border-radius: 20px;
     box-sizing: border-box;
-    border: 1px solid white;
+    border: 1px solid var(--input-border);
     outline: none;
-    color: white;
-    background-color: rgba(255, 255, 255, 0.041);
+    color: var(--text);
+    background-color: var(--input-bg);
     transition: .4s;
-    
 }
-.input-group:hover input{
+
+.input-group:hover input {
     width: 100%;
 }
 
@@ -86,7 +207,7 @@ body {
 .remember-me {
     display: flex;
     align-items: center;
-    color: white;
+    color: var(--text);
 }
 
 .remember-me label {
@@ -94,46 +215,52 @@ body {
 }
 
 .options a {
-    color: white;
+    color: var(--text);
     text-decoration: none;
 }
 
-.button-div{
-    display: flex ;
+.button-div {
+    display: flex;
     justify-content: center;
 }
-button {
+
+button.login-btn {
     width: 80%;
     padding: 10px;
-    background-color: white;
-    color: black;
+    background-color: #fff;
+    color: var(--button-text);
     border: none;
     border-radius: 20px;
     cursor: pointer;
-    font-weight: bolder;
+    font-weight: 700;
     transition: .3s;
-    
-   
 }
 
-button:hover {
-   
+body.light button.login-btn {
+    background: #2f2f2f;
+}
+
+button.login-btn:hover {
     width: 100%;
-  
 }
 
 .register-link {
     text-align: center;
     margin-top: 15px;
-    color:white;
+    color: var(--text);
 }
 
 .register-link a {
-    color: white;
+    color: var(--text);
     text-decoration: none;
 }
-@media (max-width:480px){
-    .login-box{
+
+@media (max-width: 480px) {
+    .login-box {
         width: 280px;
+    }
+
+    .tool-btn span {
+        font-size: .72rem;
     }
 }
